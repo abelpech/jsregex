@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Password Validation REGEX</title>
+    <meta charset = "utf-8">
+    <style>
+        .red {
+            background-color: red;
+        }
+        .green {
+            background-color: green;
+        }
+    </style>
+    </head>
+    <body>
+        <div>
+            <h1> JS Password Validation with REGEX</h1>
+            <br>
+            <form id="myForm">
+                <label>Username</label>
+                <input type="text" id="username" class="" />
+                <br>
+                <h5>Minimum eight characters, at least one letter and one number:</h5>
+                <label>Password</label>
+                <input type="text" id="password" class="" />
+                
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+    <script>
+    function validatePassword(e) {
+        console.log(this.value);
+        var valid = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(this.value)
+
+        if (!valid) {
+            this.className = "red";
+        } else {
+            this.className = "green";
+        }
+    }
+
+    document.getElementById("password").addEventListener("keyup",validatePassword);
+    </script>
+
+    </body>
+</html>
